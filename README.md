@@ -59,24 +59,23 @@ This structure makes debugging, testing, and scaling impossible in real-world en
 
 ## 🧪 Postman API Testing
 
-### Endpoint
+### 🟢 Live API Endpoint (Hosted on Render)
+
+https://identity-reconciliation-7pv8.onrender.com/identify
+
+> You can directly send POST requests to this endpoint using Postman, curl, or any HTTP client.
+
+### 📥 Sample Request Format
 
 ```
-POST /identify
-```
-
-### Sample Request Format
-
-```json
 {
   "email": "example@gmail.com",
   "phoneNumber": "1234567890"
 }
 ```
+📤 Sample Response Format
+```
 
-### Sample Response
-
-```json
 {
   "contact": {
     "primaryContactId": 5,
@@ -92,8 +91,19 @@ POST /identify
     ]
   }
 }
+
 ```
 
+| Test Case | Description                             | Screenshot |
+|-----------|-----------------------------------------|------------|
+| ✅ TC1     | New primary contact created              | <img src="./testcase_images/TC1.jpg" width="130px"/> |
+| 🧊 TC2     | Merges new secondary into existing identity | <img src="./testcase_images/TC2.jpg" width="130px"/>|
+| 🔗 TC3     | Reconciles two primary contacts into one | <img src="./testcase_images/TC3.jpg" width="130px"/> |
+| 📄 TC4     | Adds new contact to already linked chain | <img src="./testcase_images/TC4.jpg" width="130px"/> |
+| 🔁 TC5     | Merges existing secondary with new contact | <img src="./testcase_images/TC5.jpg" width="130px"/> |
+
+
+---
 
 ## 🚀 How to Run Locally
 
@@ -168,19 +178,17 @@ POST /identify
 
 ## 🧠 Why This Is the Best Approach
 
-# Feature                   
-
-| Scalable architecture       ✅             
-| Clear separation of logic   ✅             
-| Clean codebase              ✅             
-| Easier debugging & testing  ✅             
-| Best practices followed     ✅          
+Scalable architecture       ✅             
+Clear separation of logic   ✅             
+Clean codebase              ✅             
+Easier debugging & testing  ✅             
+Best practices followed     ✅          
 
 ---
 
 ## 📮 Contact
 
-Made with 💻 by **Ishaan Deshpande**
+Made with 💻 by **Ishaan Deshpande - 9967387737**
 
 ---
 
