@@ -5,7 +5,7 @@ export const formatResponse = (primary: Contact, all: Contact[]) => {
   const phones = new Set<string>();
   const secondaryIds: number[] = [];
 
-  for (const c of [primary, ...all]) {
+  for (const c of [primary, ...all] as Contact[]) {
     if (c.email) emails.add(c.email);
     if (c.phoneNumber) phones.add(c.phoneNumber);
     if (c.id !== primary.id) secondaryIds.push(c.id);

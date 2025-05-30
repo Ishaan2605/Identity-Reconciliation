@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Contact } from '@prisma/client';
 import { formatResponse } from '../utils/responseFormatter';
 
 const prisma = new PrismaClient();
@@ -23,20 +23,20 @@ export const identify = async ({ email, phoneNumber }: { email?: string; phoneNu
     return formatResponse(newContact, []);
   }
 
-  const primary = contacts.find(c => c.linkPrecedence === 'primary') || contacts[0];
+  const primary = (contacts.find((c: Contact) => c.linkPrecedence === 'primary') || contacts[0]);
 
   const allRelated = await prisma.contact.findMany({
     where: {
       OR: [
         { id: primary.id },
         { linkedId: primary.id },
-        { linkedId: { in: contacts.map(c => c.id) } },
+        { linkedId: { in: contacts.map((c: Contact) => c.id) } },
       ],
     },
     orderBy: { createdAt: 'asc' },
   });
 
-  const alreadyExists = allRelated.some(c => c.email === email && c.phoneNumber === phoneNumber);
+  const alreadyExists = allRelated.some((c: Contact) => c.email === email && c.phoneNumber === phoneNumber);
 
   if (!alreadyExists) {
     await prisma.contact.create({

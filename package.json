@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --respawn src/app.ts",
     "start": "node dist/app.js",
-    "build": "tsc && npx prisma generate"
+    "build": "npx prisma generate && tsc"
+
   },
   "keywords": [],
   "author": "",
