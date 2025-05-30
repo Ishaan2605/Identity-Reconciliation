@@ -12,7 +12,7 @@ export const formatResponse = (primary: Contact, all: Contact[]) => {
   }
 
   return {
-    primaryContatctId: primary.id,
+    primaryContactId: primary.id,
     emails: [primary.email!, ...[...emails].filter(e => e !== primary.email)],
     phoneNumbers: [primary.phoneNumber!, ...[...phones].filter(p => p !== primary.phoneNumber)],
     secondaryContactIds: secondaryIds,
