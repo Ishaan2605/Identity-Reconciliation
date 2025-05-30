@@ -1,10 +1,8 @@
-Here is a **professional-grade, detailed README.md** for your Identity Reconciliation project, crafted to explain everything from the architecture to Postman testing and image usage:
 
----
 
 # 🧠 Identity Reconciliation API
 
-A high-performance backend API that links user contacts (emails and phone numbers) into unified identities using primary and secondary mappings. Built with Node.js, TypeScript, Express, Prisma ORM, Supabase PostgreSQL, and deployed on Render.
+This is a backend project designed to reconcile user identities across multiple sources using email and phone numbers. The goal is to intelligently group users that may have overlapping contact information and return a consolidated contact object with primary and secondary identifiers.
 
 ---
 
